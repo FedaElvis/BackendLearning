@@ -1,8 +1,12 @@
 import express from 'express'
-import students from './route/student.js'
+import middlewares from './middlewares/logs.js'
 const app = express();
 
-app.use("/students",students)
+app.get("/", middlewares, (req,res,next)=>{
+    res.send("welcome midllewares")
+    next()
+})
+
 
 
 app.listen(8000,()=>console.log("server up"))
